@@ -1,7 +1,7 @@
 import { book, user,Lone } from '@prisma/client';
-import { PrismaClientKnownRequestError } from '@prisma/client/runtime';
+import { join, PrismaClientKnownRequestError } from '@prisma/client/runtime';
 import { Request, Response } from 'express';
-import { bookscama,bookscamatype,lonescama,userscama} from '../bookschama/book.manage.scama';
+import { bookscama,bookscamatype,lonescama,userscama, userscamatype} from '../bookschama/book.manage.scama';
 import { prisma } from '../config/db';
 
 
@@ -37,7 +37,8 @@ export const  findbooks = async(req:Request,res:Response)=>
     
    const getbooks= await prisma.book.findMany()
    return res.json(getbook)
-    }
+      }
+    
 
 
 export const  getlone = async(req:Request,res:Response)=>
@@ -49,11 +50,9 @@ export const  getlone = async(req:Request,res:Response)=>
       let newlone= req.body as Lone
       
       await prisma.lone.create({
-      data : newlone
+      
+          data : newlone
       
       })
-      
-      }
-
-
-
+    }
+  

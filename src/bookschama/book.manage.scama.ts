@@ -1,20 +1,20 @@
 import { z } from "zod";
 
-const userscama=z.object({
+export const userscama=z.object({
     body:z.object({
     id : z.string({required_error: "id is required"}),
     username: z.string({required_error: "username is required "}),
     passwoord: z.string({required_error: "password cant be null "})
     })
     })
-    const bookscama=z.object({
+   export  const bookscama=z.object({
         body:z.object({
         id : z.string({required_error: "id is required"}),
         name: z.string({required_error: "name is required "}),
         genre: z.string({required_error: "genr cant be null "})
         })
         })
-    const lonescama=z.object({
+   export const lonescama=z.object({
         body:z.object({
         id : z.string({required_error: "id is required"}),
         userid: z.string({required_error: "userid  is required "}),
